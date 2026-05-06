@@ -9,6 +9,7 @@ from langchain_community.tools.tavily_search import TavilySearchResults
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_openai import ChatOpenAI
+from langsmith import traceable
 
 
 @dataclass
@@ -57,6 +58,7 @@ def _format_results(results: list[dict[str, Any]]) -> str:
     return "\n\n".join(blocks)
 
 
+@traceable(name="research", run_type="chain")
 def run_research(
     topic: str,
     *,

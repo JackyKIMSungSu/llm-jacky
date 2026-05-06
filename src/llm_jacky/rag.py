@@ -8,6 +8,7 @@ from langchain_chroma import Chroma
 from langchain_core.documents import Document
 from langchain_openai import OpenAIEmbeddings
 from langchain_text_splitters import RecursiveCharacterTextSplitter
+from langsmith import traceable
 
 from llm_jacky.research import ResearchResult
 
@@ -54,6 +55,7 @@ def _doc_id(doc: Document) -> str:
     return f"{doc.metadata['url']}#{doc.metadata['chunk_index']}"
 
 
+@traceable(name="rag.index", run_type="chain")
 def index_research(
     result: ResearchResult,
     *,

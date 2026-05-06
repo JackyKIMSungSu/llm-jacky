@@ -6,3 +6,4 @@ langchain-chroma
 langgraph
 python-dotenv
 tavily-python
+markdown
