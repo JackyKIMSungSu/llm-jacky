@@ -13,9 +13,18 @@ cp .env.example .env  # API 키 입력
 
 ## Run
 
+CLI:
 ```bash
-python main.py
+python main.py "<주제>"            # 1~5단계 + draft 저장
+python main.py "<주제>" --publish  # 1~6단계 (WP 업로드)
 ```
+
+Web UI (Streamlit):
+```bash
+streamlit run app.py               # http://localhost:8501
+```
+- **Pipeline** 페이지: 주제 → 초안/SEO/출처 검토 → WordPress 업로드
+- **Evaluation** 페이지: 시드 토픽 평가 → 6 메트릭 표
 
 ## Local WordPress (Docker)
 
